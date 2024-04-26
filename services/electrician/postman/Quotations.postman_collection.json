@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "5e20bf44-1db7-452f-9585-a6f7e06f6b93",
+		"name": "Quotations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310981"
+	},
+	"item": [
+		{
+			"name": "getQuotation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/v1/quotations/0/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"quotations",
+						"0",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getQuotationWrong",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/v1/quotations/0/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"quotations",
+						"0",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getQuotationsWrong",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/v1/quotations/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"quotations",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getQuotations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/v1/quotations/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"quotations",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

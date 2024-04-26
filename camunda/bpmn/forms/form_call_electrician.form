@@ -1,0 +1,34 @@
+{
+  "components": [
+    {
+      "label": "Is Work Done ?",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_17wsknl",
+        "columns": null
+      },
+      "id": "Field_1sc4cdu",
+      "key": "electricianworkdone",
+      "defaultValue": true
+    },
+    {
+      "label": "Contact",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1v7oljg",
+        "columns": null
+      },
+      "id": "Field_1x8ig8e",
+      "key": "phone_electrician"
+    }
+  ],
+  "type": "default",
+  "id": "form_call_electrician",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.12.1"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.19.0",
+  "schemaVersion": 9
+}

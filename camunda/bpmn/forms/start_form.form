@@ -1,0 +1,138 @@
+{
+  "components": [
+    {
+      "label": "Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1u291a1",
+        "columns": null
+      },
+      "id": "Field_050hbbb",
+      "key": "name",
+      "defaultValue": "John"
+    },
+    {
+      "label": "Surname",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_19hxb60",
+        "columns": null
+      },
+      "id": "Field_0je45lz",
+      "key": "surname",
+      "defaultValue": "Cena"
+    },
+    {
+      "label": "Budget",
+      "type": "number",
+      "layout": {
+        "row": "Row_14eqzjp",
+        "columns": null
+      },
+      "id": "Field_1p40f63",
+      "key": "budget",
+      "defaultValue": 15000
+    },
+    {
+      "values": [
+        {
+          "label": "Lombardy",
+          "value": "Lombardy"
+        },
+        {
+          "label": "Tuscany",
+          "value": "Tuscany"
+        },
+        {
+          "label": "Campania",
+          "value": "Campania"
+        }
+      ],
+      "label": "Region",
+      "type": "select",
+      "layout": {
+        "row": "Row_0bpb9c5",
+        "columns": null
+      },
+      "id": "Field_0hga1ot",
+      "key": "region",
+      "defaultValue": "Lombardy"
+    },
+    {
+      "label": "Description",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0tlgl52",
+        "columns": null
+      },
+      "id": "Field_19sxooc",
+      "key": "description",
+      "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac mauris nec felis sagittis mollis. Morbi sapien diam, dignissim sit amet congue vel, dapibus non dui. Sed rutrum odio eu euismod sollicitudin. Ut eleifend, dui quis semper congue, ante augue pharetra risus, et porta tellus metus blandit neque. Sed efficitur, augue nec ultrices tempus, mauris nulla semper enim, id ornare tellus elit vitae tortor. Phasellus urna ex, viverra in lorem eu, iaculis porttitor nibh. Fusce at ex ut risus sagittis gravida eget sed augue. Maecenas laoreet magna at malesuada eleifend. Suspendisse pulvinar et risus imperdiet pharetra. Nullam posuere pulvinar risus, at accumsan velit scelerisque non. Proin in metus diam. Integer vitae massa sem. Donec vulputate feugiat placerat. Sed malesuada elementum mattis."
+    },
+    {
+      "label": "Start Date",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1tnhfix",
+        "columns": null
+      },
+      "id": "Field_17t1r04",
+      "key": "startDate",
+      "defaultValue": "9/09/2023"
+    },
+    {
+      "label": "End Date",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_159u32t",
+        "columns": null
+      },
+      "id": "Field_0mwegp7",
+      "key": "endDate",
+      "defaultValue": "16/09/2023"
+    },
+    {
+      "label": "Plumber",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_00emqvr",
+        "columns": null
+      },
+      "id": "Field_1jvxtqm",
+      "key": "are_plumbers_chosen",
+      "defaultValue": true,
+      "properties": {}
+    },
+    {
+      "label": "Electrician",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_15x8dn3",
+        "columns": null
+      },
+      "id": "Field_1pjwfnm",
+      "key": "are_electricians_chosen",
+      "defaultValue": true
+    },
+    {
+      "label": "Constructor",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_1mok4xe",
+        "columns": null
+      },
+      "id": "Field_1tm1cap",
+      "key": "are_constructors_chosen",
+      "defaultValue": true
+    }
+  ],
+  "type": "default",
+  "id": "start_form",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.13.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.19.0",
+  "schemaVersion": 9
+}

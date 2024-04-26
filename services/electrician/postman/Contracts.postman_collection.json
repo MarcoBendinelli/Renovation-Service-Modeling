@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "7b8dbdd3-80b9-4cb4-a668-3f9ea71ac27c",
+		"name": "Contracts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26823465"
+	},
+	"item": [
+		{
+			"name": "addContract",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workId\" : 3,\r\n    \"text\" : \"ultra cool description of the contract\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/v1/contracts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"contracts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addContractWrong",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workId\" : 10,\r\n    \"text\" : \"ultra cool description of the contract\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/v1/contracts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"contracts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addContractWrong2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workId\" : 4,\r\n    \"text\" : \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/v1/contracts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"contracts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addContractWrong3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workId\" : 4,\r\n    \"text\" : \"dsvvs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/v1/contracts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"contracts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

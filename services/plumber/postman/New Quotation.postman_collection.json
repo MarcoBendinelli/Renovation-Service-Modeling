@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "c55883f0-b87f-4879-a0aa-1a49f3ff0795",
+		"name": "New Quotation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Send quotation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"companyName\": \"Tabo Srl\",\r\n  \"workDescription\": \"Restroom\",\r\n  \"budget\": 200,\r\n  \"startDate\": \"06/06/2023\",\r\n  \"endDate\": \"06/08/2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/v1/commissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"v1",
+						"commissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Request 4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/v1/status/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"v1",
+						"status",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

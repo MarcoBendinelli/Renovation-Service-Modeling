@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "0848d8b3-f23d-4e32-b76c-f15979308357",
+		"name": "Reject a new quotation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310981"
+	},
+	"item": [
+		{
+			"name": "Constructor's work areas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/areas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"areas"
+					]
+				},
+				"description": "Get the available areas of work of the constructor"
+			},
+			"response": []
+		},
+		{
+			"name": "New quotation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyName\" : \"House Rennovation Company\",\r\n    \"workDescription\" : \"You should build a load-bearing wall in a 17th century house\",\r\n    \"budget\" : 3500,\r\n    \"startDate\" : \"11/06/2025\",\r\n    \"endDate\" : \"25/12/2026\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/Lazio/jobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"Lazio",
+						"jobs"
+					]
+				},
+				"description": "Send a quotation request for the specific area of work"
+			},
+			"response": []
+		},
+		{
+			"name": "Reject job",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quoteId\" : 0,\r\n    \"message\" : \"Rejected\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/confirmations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"confirmations"
+					]
+				},
+				"description": "Confirm or not the job"
+			},
+			"response": []
+		}
+	]
+}

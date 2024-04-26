@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "a00ea0f7-c2ea-4d5e-96b3-f4b6f6c1c190",
+		"name": "Inserted a wrong area",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310981"
+	},
+	"item": [
+		{
+			"name": "Constructor's work areas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/areas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"areas"
+					]
+				},
+				"description": "Get the available areas of work of the constructor"
+			},
+			"response": []
+		},
+		{
+			"name": "New quotation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyName\" : \"House Rennovation Company\",\r\n    \"workDescription\" : \"You should build a load-bearing wall in a 17th century house\",\r\n    \"budget\" : 3500,\r\n    \"startDate\" : \"11/06/2025\",\r\n    \"endDate\" : \"25/12/2026\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/NewYork/jobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"NewYork",
+						"jobs"
+					]
+				},
+				"description": "Send a quotation request for the specific area of work"
+			},
+			"response": []
+		}
+	]
+}

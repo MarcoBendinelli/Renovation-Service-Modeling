@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "f8fd8a8f-79bb-4446-9764-760df1a33649",
+		"name": "Works",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26823465"
+	},
+	"item": [
+		{
+			"name": "workRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyName\": \"HouseRenovationCompany\",\r\n    \"workDescription\": \"new incredible work description\",\r\n    \"budget\": 150,\r\n    \"startDate\": \"12/11/22\",\r\n    \"endDate\": \"10/1/23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/v1/works",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"works"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "workRequestWrong",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyName\": \"\",\r\n    \"workDescription\": \"new incredible work description\",\r\n    \"budget\": 150,\r\n    \"startDate\": \"12/11/22\",\r\n    \"endDate\": \"10/1/23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/v1/works",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"v1",
+						"works"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

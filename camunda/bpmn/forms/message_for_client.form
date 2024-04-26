@@ -1,0 +1,35 @@
+{
+  "components": [
+    {
+      "label": "Message for Client",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_14lssyy",
+        "columns": null
+      },
+      "id": "Field_0h36unv",
+      "key": "message_work_done",
+      "defaultValue": "This is the message for the client",
+      "disabled": false
+    },
+    {
+      "label": "Invoice",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1mn3xcs",
+        "columns": null
+      },
+      "id": "Field_1mil09k",
+      "key": "final_price"
+    }
+  ],
+  "type": "default",
+  "id": "form2",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.12.1"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.19.0",
+  "schemaVersion": 9
+}

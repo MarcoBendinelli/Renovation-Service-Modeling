@@ -1,0 +1,226 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Plumber API",
+      "license": {
+        "name": "MIT"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://plumber.swagger.io/v1"
+      }
+    ],
+    "paths": {
+      "/commissions":{
+        "post": {
+          "description": "A company sends the info to get a quote for the interval of time selected",
+          "operationId": "postCommission",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuotationRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201":{
+              "description": "Response with the textual version of the status of the job",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/QuotationResponse"
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+      }
+
+      },
+      "/agreements":{
+        "post":{
+          "description": "A company sends the result of the preliminary request for quotes",
+          "operationId":"postAgreement",
+          "requestBody": {
+            "required":true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfirmMessage"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201":{
+              "description": "Message to confirm the feedback from a company",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type":"string"
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      },
+      "/status/{quoteId}": {
+        "get": {
+          "description": "Info to track the progress of a work",
+          "operationId": "showStatusWorkById",
+          "parameters": [
+            {
+              "name": "quoteId",
+              "in": "path",
+              "required": true,
+              "description": "The id of the quote to get an update of the status",
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "responses":{
+            "200":{
+              "description": "Response with the textual version of the status of the job",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "default": {
+              "description": "unexpected error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "ConfirmMessage":{
+          "type":"object",
+          "required":[
+            "quoteId",
+            "message"
+          ],
+          "properties":{
+            "quoteId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "message":{
+              "type":"string",
+              "enum": [
+                "Selected",
+                "Rejected"
+              ]
+            }
+          }
+        },
+        "QuotationRequest":{
+          "type":"object",
+          "properties":{
+            "companyName":{
+              "type":"string"
+            },
+            "workDescription":{
+              "type":"string"
+            },
+            "budget":{
+              "type":"integer",
+              "format":"int32"
+            },
+            "startDate":{
+              "type":"string"
+            },
+            "endDate":{
+              "type":"string"
+            }
+          }
+        },
+        "QuotationResponse":{
+          "type":"object",
+          "required":[
+            "quoteId",
+            "price",
+            "workdays",
+            "startDate",
+            "endDate"
+          ],
+          "properties":{
+            "quoteId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "price": {
+              "type":"integer",
+              "format": "int32"
+            },
+            "workdays":{
+              "type":"integer",
+              "format":"int32"
+            },
+            "startDate": {
+              "type":"string"
+            },
+            "endDate":{
+              "type":"string"
+            }
+          }
+        },
+        "Error": {
+          "type": "object",
+          "required": [
+            "code",
+            "message"
+          ],
+          "properties": {
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }

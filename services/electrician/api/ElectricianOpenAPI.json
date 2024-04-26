@@ -1,0 +1,268 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Electrician"
+  },
+  "servers": [
+    {
+      "url": "http://electrician.com/v1"
+    }
+  ],
+  "paths": {
+    "/works": {
+      "post": {
+        "description": "Create a work object and get a quotation, the server creates and stores a quotation that can be retrieved by the workId",
+        "operationId": "workRequest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quotation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "error"
+          }
+        }
+      }
+    },
+    "/contracts": {
+      "post": {
+        "operationId": "createContract",
+        "description": "Creating a contract assocated with a workId",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Feedback from contract response",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error"
+          },
+          "404": {
+            "description": "Page Not Found"
+          }
+        }
+      }
+    },
+    "/quotations/{customerId}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/customerId"
+        }
+      ],
+      "get": {
+        "operationId": "getQuotations",
+        "description": "Return all the quotations related with the customerId",
+        "responses": {
+          "200": {
+            "description": "get was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quotations"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Wrong id",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotations/{customerId}/{workId}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/customerId"
+        },
+        {
+          "$ref": "#/components/parameters/workId"
+        }
+      ],
+      "get": {
+        "operationId": "getQuotation",
+        "description": "Return a quotation identified by a unique workId and customerId",
+        "responses": {
+          "200": {
+            "description": "get was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quotation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Wrong id",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Quotation": {
+        "type": "object",
+        "properties": {
+          "workId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The unique identifier of the quote"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The unique identifier of the customer"
+          },
+          "workDays": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Number of days required to end the work"
+          },
+          "price": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Money requested for the work"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          }
+        }
+      },
+      "Quotations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Quotation"
+        }
+      },
+      "Work": {
+        "type": "object",
+        "properties": {
+          "workId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The unique identifier of the job"
+          },
+          "companyName": {
+            "type": "string",
+            "description": "The name of the company requesting the job"
+          },
+          "workDescription": {
+            "type": "string",
+            "description": "The description of the work requested by the house owner"
+          },
+          "budget": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The budget available for the renovation"
+          }
+        }
+      },
+      "WorkRequest": {
+        "type": "object",
+        "properties": {
+          "companyName": {
+            "type": "string",
+            "description": "The name of the company requesting the job"
+          },
+          "workDescription": {
+            "type": "string",
+            "description": "The description of the work requested by the house owner"
+          },
+          "budget": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The budget available for the renovation"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          }
+        }
+      },
+      "Contract": {
+        "type": "object",
+        "properties": {
+          "workId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The unique identifier of the contract"
+          },
+          "text": {
+            "type": "string",
+            "description": "The text of the contract"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "workId": {
+        "name": "workId",
+        "in": "path",
+        "required": true,
+        "description": "The id of the job to retrieve",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "customerId": {
+        "name": "customerId",
+        "in": "path",
+        "required": true,
+        "description": "The id of the customer to retrieve",
+        "schema": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

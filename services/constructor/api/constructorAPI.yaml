@@ -1,0 +1,190 @@
+openapi: 3.0.0
+info:
+  title: Constructor API
+  version: 1.0.0
+  license:
+    name: MIT
+servers:
+  - url: http://constructor.swagger.io/v1
+paths:
+  /areas:
+    get:
+      summary: It shows the areas of work of the Constructor
+      responses:
+        200:
+          description: My work areas
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkAreas"
+        default:
+          description: An error occured
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /{area}/jobs:
+    post:
+      summary: Request a new job for the specific area of work
+      parameters:
+        - $ref: "#/components/parameters/AreaParameter"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobRequest"
+      responses:
+        201:
+          description: New quotation response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Quotation"
+        default:
+          description: An error occured
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /confirmations:
+    post:
+      summary: Confirm or not the job with the constructor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConfirmMessage"
+      responses:
+        201:
+          description: Feedback confirmed
+          content:
+            text/plain:
+              schema:
+                type: string
+        default:
+          description: An error occured
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    WorkAreas:
+      type: array
+      items:
+        $ref: "#/components/schemas/Area"
+      description: List of the areas of work
+
+    Area:
+      type: string
+      description: Area of Work
+      enum:
+        - Abruzzo
+        - Aosta
+        - Apulia
+        - Basilicata
+        - Calabria
+        - Campania
+        - Emilia Romagna
+        - Friuli Venezia Giulia
+        - Lazio
+        - Liguria
+        - Lombardy
+        - Molise
+        - Piedmont
+        - Sardinia
+        - Sicily
+        - The Marches
+        - Trentino Alto Adige
+        - Tuscany
+        - Umbria
+        - Veneto
+
+    QuoteId:
+      type: integer
+      format: int32
+      description: Id of the specific quote
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+
+    JobRequest:
+      type: object
+      required:
+        - companyName
+        - workDescription
+        - budget
+      properties:
+        companyName:
+          type: string
+          description: Name of the company that makes the request
+        workDescription:
+          type: string
+          description: Description of the work
+        budget:
+          type: integer
+          format: int32
+          description: Available budget for the work
+        startDate:
+          type: string
+          description: Starting date interval
+        endDate:
+          type: string
+          description: Ending date interval
+
+    Quotation:
+      type: object
+      description: The work's quotation in the specific area
+      required:
+        - price
+        - workDays
+        - quoteId
+      properties:
+        price:
+          type: integer
+          format: int32
+          description: Cost of the work
+        workDays:
+          type: integer
+          description: Number of days to complete the work
+        quoteId:
+          $ref: "#/components/schemas/QuoteId"
+
+    ConfirmMessage:
+      type: object
+      description: Message used to confirm or not the job
+      required:
+        - quoteId
+        - message
+      properties:
+        quoteId:
+          $ref: "#/components/schemas/QuoteId"
+        message:
+          type: string
+          description: Result of the confirmation
+          enum:
+            - Confirmed
+            - Rejected
+
+  parameters:
+    AreaParameter:
+      name: area
+      in: path
+      description: Area of work the constructor
+      required: true
+      schema:
+        $ref: "#/components/schemas/Area"
