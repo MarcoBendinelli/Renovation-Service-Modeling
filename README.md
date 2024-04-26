@@ -1,11 +1,15 @@
-# ReNewHouse
-We want to model the service offered by a house renovation company to its clients. The house renovation company service relies on the services offered by a set of plumbers, electrician, constructors
-Based on the requests of the client (the householder) contact them and select the best ones
+# Renovation House Modeling :house_with_garden:
+
+The project aims to model the service provided by a house renovation company to its clients. This service involves coordinating various workers such as plumbers, electricians, and constructors. The process begins with client requests, which prompt the service to contact and select the most suitable providers.
+
+To model this complex process, **choreography** and **collaboration** diagrams using **BPMN** (Business Process Model and Notation) are employed. These diagrams visualize the interactions and handoffs between different parties involved in the renovation process, ensuring smooth coordination.
+
+Additionally, **Petri net** is used to represent the dynamic behavior of the system. Petri net provides a graphical and mathematical framework for modeling concurrent processes, enabling us to analyze the flow of activities and resources within the renovation service.
 
 ## Members:
-* Stefano, Taborelli, 10608112
-* Riccardo, Gelato, 10662797
-* Marco, Bendinelli, 10673478
+* Marco, Bendinelli
+* Stefano, Taborelli
+* Riccardo, Gelato
 
 ## Overview of the process
 This is an elicopter view of the process managed by the house renovation company:
@@ -20,17 +24,17 @@ This is an elicopter view of the process managed by the house renovation company
 
 
 ## Third party services
-[Here](https://github.com/stefanotaborelli/ReNewHouse/tree/main/services) there will be all the files used to debloy the API servers of workers
-* [plumber](https://github.com/stefanotaborelli/ReNewHouse/tree/main/services/plumber)
-* [electrician](https://github.com/stefanotaborelli/ReNewHouse/tree/main/services/electrician)
-* [constructor](https://github.com/stefanotaborelli/ReNewHouse/tree/main/services/constructor)
+[Here](https://github.com/MarcoBendinelli/Renovation-Service-Modeling/tree/main/services) there will be all the files used to debloy the API servers of workers
+* [plumber](https://github.com/MarcoBendinelli/Renovation-Service-Modeling/tree/main/services/plumber)
+* [electrician](https://github.com/MarcoBendinelli/Renovation-Service-Modeling/tree/main/services/electrician)
+* [constructor](https://github.com/MarcoBendinelli/Renovation-Service-Modeling/tree/main/services/constructor)
 
 ## Models of the service
-Here there is a first glanse to models used to describe all the process. Click [here](https://github.com/stefanotaborelli/ReNewHouse/tree/main/processes) to go the folder with all the files used.
-### [Choreographed process](https://github.com/stefanotaborelli/ReNewHouse/blob/main/processes/choreography.pdf)
+Here there is a first glanse to models used to describe all the process. Click [here](https://github.com/MarcoBendinelli/Renovation-Service-Modeling/tree/main/processes) to go the folder with all the files used.
+### [Choreographed process](https://github.com/MarcoBendinelli/Renovation-Service-Modeling/blob/main/processes/choreography.pdf)
 
-### [Collaboration Diagram](https://github.com/stefanotaborelli/ReNewHouse/blob/main/processes/collaboration.pdf)
+### [Collaboration Diagram](https://github.com/MarcoBendinelli/Renovation-Service-Modeling/blob/main/processes/collaboration.pdf)
 
-### [Executable process](https://github.com/stefanotaborelli/ReNewHouse/blob/main/processes/executable.jpg)
+### [Executable process](https://github.com/MarcoBendinelli/Renovation-Service-Modeling/blob/main/processes/executable.jpg)
 
-### [Petri Net](https://github.com/stefanotaborelli/ReNewHouse/blob/main/processes/petrinet.pdf)
+### [Petri Net](https://github.com/MarcoBendinelli/Renovation-Service-Modeling/blob/main/processes/petrinet.pdf)
